@@ -29,7 +29,7 @@
             </div>
             <div class="param code">
                 <label for="code">Код:</label>
-                <input type="text" name="code" id="code"/>
+                <input type="text" name="code" id="code" maxlength="8"/>
             </div>
             <br class="clear"/>
         </div>

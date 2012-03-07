@@ -40,4 +40,16 @@ $(document).ready(function () {
             $(this).parents('.player').find('.group').removeAttr('disabled');
     });
 
+    $('.delete-player').click(function () {
+        $(this).parents('.player').remove();
+        $('.player').not('.operator').each(function () {
+            var ind = $('.player').index($(this));
+            $(this).find('.num').html(ind);
+            $(this).find('input, checkbox').each(function () {
+                $(this).attr('name', $(this).attr('for') + '[' + (ind - 1) + ']');
+            });
+        });
+        return false;
+    });
+
 });

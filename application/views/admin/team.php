@@ -13,19 +13,18 @@
 
             <div class="param password">
                 <label for="password">Пароль для входа:</label>
-                <input type="text" name="password" id="password" disabled="disabled"/>
+                <input type="text" name="password" id="password">
             </div>
             <br class="clear"/>
         </div>
         <div class="tasks">
-            <? for ($i = 1; $i <= 6; $i++): ?>
+            <? for ($i = 1; $i <= 6; $i++):?>
             <div class="task">
                 <label>Загадка <?=$i?></label>
-                <select name="task<?=$i?>">
+                <select <?=!$team->tasks[$i] || $team->tasks[$i]->id == 0 ? 'selected' : ''?> name="task<?=$i?>">
                     <option value="0">Нет загадки</option>
                     <? foreach (Task::all() as $task): ?>
-                    <option <?=$task->id == $team->task_$$i ? 'checked' : ''?>
-                        value="<?=$task->id?>"><?=$task->answer?></option>
+                    <option <?=$team->tasks[$i] && $team->tasks[$i]->id == $task->id ? "selected" : ""?> value="<?=$task->id?>"><?=$task->answer?></option>
                     <? endforeach; ?>
                 </select>
             </div>
@@ -48,7 +47,7 @@
                 </div>
                 <div class="checkbox param">
                     <label>Преподаватель:</label>
-                    <input type="checkbox" class="is_teacher" <?=$team->operator->is_teacher ? 'checked' : ''?>
+                    <input type="checkbox" class="is_teacher" <?=$team->operator->type=='teacher' ? 'checked' : ''?>
                            name="is_teacher[0]"/>
                 </div>
                 <div class="param">
@@ -83,25 +82,25 @@
             <? foreach ($team->players as $ind=>$player): ?>
 
             <div class="player">
-                <div class="header">Игрок <span class="num"><?=($ind + 1)?></span>
+                <div class="header">Игрок <span class="num"><?=($ind + 2)?></span>
                     <a href="#" class="delete-icon delete-player"></a>
                 </div>
 
                 <div class="param">
                     <label>Имя:</label>
-                    <input type="text" name="player_name[<?=$ind?>]" value="<?=$player->name?>" maxlength="30"/>
+                    <input type="text" name="player_name[<?=($ind + 1)?>]" value="<?=$player->name?>" maxlength="30"/>
                 </div>
                 <div class="param">
                     <label>Фамилия:</label>
-                    <input type="text" name="player_surname[<?=$ind?>]" value="<?=$player->surname?>" maxlength="30"/>
+                    <input type="text" name="player_surname[<?=($ind + 1)?>]" value="<?=$player->surname?>" maxlength="30"/>
                 </div>
                 <div class="checkbox param">
                     <label>Преподаватель:</label>
-                    <input type="checkbox" class="is_teacher" <?=$player->is_teacher ? 'checked' : ''?> name="is_teacher[<?=$ind?>]"/>
+                    <input type="checkbox" class="is_teacher" <?=$player->type=='teacher' ? 'checked' : ''?> name="is_teacher[<?=($ind + 1)?>]"/>
                 </div>
                 <div clas="param">
                     <label>Группа:</label>
-                    <input type="text" class="group" name="player_group[<?=$ind?>]" value="<?=$player->group?>" maxlength="6"/>
+                    <input type="text" class="group" name="player_group[<?=($ind + 1)?>]" value="<?=$player->group?>" maxlength="6"/>
                 </div>
             </div>
             <? endforeach; ?>

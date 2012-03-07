@@ -21,7 +21,6 @@ class Admin extends ActiveRecord\Model
     public static function validate_login($email, $password)
     {
         $user = Admin::find_by_email($email);
-
         if ($user && $user->validate_password($password)) {
             Admin::login($user->id);
             return $user;

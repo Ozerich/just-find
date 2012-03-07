@@ -48,7 +48,24 @@ class Team extends ActiveRecord\Model
 
     public function get_players()
     {
-        return Player::find('all', array('conditions' => array('is_operator = 0 AND team_id = ?', $this->team_id)));
+        return Player::find('all', array('conditions' => array('is_operator = 0 AND team_id = ?', $this->id)));
+    }
+
+    public function get_tasks()
+    {
+        $result = array();
+        for ($i = 1; $i <= 6; $i++) {
+            $task_id = 0;
+            if ($i == 1) $task_id = $this->task_1;
+            if ($i == 2) $task_id = $this->task_2;
+            if ($i == 3) $task_id = $this->task_3;
+            if ($i == 4) $task_id = $this->task_4;
+            if ($i == 5) $task_id = $this->task_5;
+            if ($i == 6) $task_id = $this->task_6;
+
+            $result[$i] = Task::find_by_id($task_id);
+        }
+        return $result;
     }
 }
 

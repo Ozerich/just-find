@@ -18,6 +18,12 @@ h1 {
 	letter-spacing: 12px;
 	border-bottom: 1px solid #ddd;
 	margin: 0;
+    margin-bottom: 15px;
+}
+
+input[type=text]:focus, input[type=password], textarea:focus{
+    background: #feffd3;
+    border: 1px solid red;
 }
 
 h2.subtitle {
@@ -141,7 +147,12 @@ h2.subtitle {
 .content p {
     text-align: justify;
     text-indent: 20px;
-    font-size: 19px;
+    font-size: 15px;
+}
+
+.content h2{
+    font-size: 20px;
+    padding: 10px 0;
 }
 
 .content a {
@@ -289,6 +300,15 @@ input[type=text],input[type=password]{
     float: right;
 }
 
+.save-icon{
+    width: 24px;
+    height: 24px;
+    background: url('../images/save-icon.png') no-repeat;
+    display: block;
+    border: 0;
+    float: left;
+}
+
 .edit-icon{
     width: 16px;
     height: 16px;
@@ -318,14 +338,11 @@ input[type=text],input[type=password]{
     font-weight: bold;
 }
 
-.new-task .param{
-    width: 90%;
-}
-
 .new-task textarea, .new-task input[type=text]{
     width: 100%;
 }
 
+.new-task .answer-block input{text-align: center;}
 
 .new-team label{
     display: block;
@@ -346,6 +363,8 @@ input[type=text],input[type=password]{
     width: 100%;
     text-align: center;
 }
+
+
 
 .new-team .maininfo .param.teamname{width: 275px;}
 .new-team .maininfo .param.email{width: 250px;}
@@ -389,9 +408,53 @@ input[type=text],input[type=password]{
 }
 
 .new-task .answer-block .param.answer{
-    width: 250px;
+    width: 508px;
+    margin-right: 20px;
 }
 
 .new-task .answer-block .param.code{
-    width: 50px;
+    width: 100px;
 }
+
+.list{
+    width: 100%;
+    border: 1px solid #aaa;
+    padding: 2px;
+}
+
+.list tr{border-bottom: 1px solid #aaa}
+.list td, .list th{padding: 10px}
+
+.team-list .team-position{
+    width: 45px;
+    text-align: center;
+    height: 18px;
+    font-size: 12px;
+}
+
+.list-buttons .save-icon{
+    margin-left: 74px;
+}
+
+.list-buttons{margin-top: 5px}
+.list-buttons .new-link{
+    float: right;
+    display: block;
+}
+
+.admin-content a{
+    color: #ddd;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.admin-content a:hover{
+    color: #bababa;
+    text-decoration: none;
+}
+
+.new-task .param{
+    margin-bottom: 10px
+}
+
+.new-task .param textarea{height: 100px}

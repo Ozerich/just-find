@@ -62,7 +62,7 @@
     <div id="container">
         <div class="transparency">
               </div>
-        <div class="content">
+        <div class="content admin-content">
 
             <?=$page_content?>
 

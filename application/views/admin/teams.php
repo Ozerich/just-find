@@ -1,25 +1,35 @@
-<table class="team-list">
-    <thead>
-    <tr>
-        <th>Позиция</th>
-        <th>Название</th>
-        <th>Оператор</th>
-    </tr>
-    </thead>
-    <tbody>
-        <? if(!Team::all()): ?>
-        <tr><td colspan="10" class="empty">Нет команд</td></tr>
-        <? else: ?>
-            <? foreach(Team::all() as $team): ?>
-                <tr>
-                    <td><?=$team->pos?></td>
-                    <td><?=$team->name?></td>
-                    <td><?=$team->operator ? $team->operator->fullname : 'Нет оператора'?></td>
-                    <td><a href="admin/team/<?=$team->id?>" class="edit-icon"></a></td>
-                </tr>
-            <? endforeach; ?>
-        <? endif; ?>
-    </tbody>
-</table>
+<form action="admin/teams" method="post">
+    <table class="team-list list">
+        <thead>
+        <tr>
+            <th>Позиция</th>
+            <th>Название</th>
+            <th>Оператор</th>
+            <th>&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody>
+        <? if (!$teams): ?>
+        <tr>
+            <td colspan="10" class="empty">Нет команд</td>
+        </tr>
+            <? else: ?>
+            <? foreach ($teams as $team): ?>
+            <tr>
+                <td><input type="text" size="2" maxlength="2" name="pos[<?=$team->id?>]" class="team-position" value="<?=$team->pos?>"/></td>
+                <td><?=$team->name?></td>
+                <td><?=$team->operator ? $team->operator->fullname : 'Нет оператора'?></td>
+                <td><a href="admin/team/<?=$team->id?>" class="edit-icon"></a></td>
+            </tr>
+                <? endforeach; ?>
+            <? endif; ?>
+        </tbody>
+    </table>
 
-<a href="admin/team/new">Новая команда</a>
+    <div class="list-buttons">
+        <input type="submit" value="" class="save-icon"/>
+        <a href="admin/team/new" class="new-link">Новая команда</a>
+        <br class="clear"/>
+    </div>
+
+</form>

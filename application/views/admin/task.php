@@ -29,7 +29,7 @@
             </div>
             <div class="param code">
                 <label for="code">Код:</label>
-                <input type="text" name="code" id="code" value="<?=$task->code?>"/>
+                <input type="text" name="code" id="code" maxlength="8" value="<?=$task->code?>"/>
             </div>
             <br class="clear"/>
         </div>

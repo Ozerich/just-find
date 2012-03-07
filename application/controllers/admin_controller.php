@@ -40,6 +40,21 @@ class Admin_Controller extends MY_Controller
         if (!$this->user)
             redirect('admin/auth');
 
+        if ($_POST) {
+
+            foreach ($_POST['pos'] as $team_id => $pos) {
+                $team = Team::find_by_id($team_id);
+                if ($team) {
+                    $team->pos = $pos;
+                    $team->save();
+                }
+            }
+
+            redirect('admin/teams');
+        }
+
+        $this->view_data['teams'] = Team::all(array('order' => 'pos ASC'));
+
         $this->view_data['page_title'] = 'Команды-участники';
     }
 
@@ -61,7 +76,6 @@ class Admin_Controller extends MY_Controller
                 'name' => $this->input->post('name'),
                 'email' => $this->input->post('email'),
                 'password' => $this->input->post('password'),
-                'register_date' => time_to_mysqldatetime(time()),
                 'task_1' => $this->input->post('task1'),
                 'task_2' => $this->input->post('task2'),
                 'task_3' => $this->input->post('task3'),
@@ -98,7 +112,8 @@ class Admin_Controller extends MY_Controller
         if ($_POST) {
             $team->name = $this->input->post('name');
             $team->email = $this->input->post('email');
-            $team->password = $this->input->post('password');
+            if ($this->input->post('password'))
+                $team->password = $this->input->post('password');
             $team->task_1 = $this->input->post('task1');
             $team->task_2 = $this->input->post('task2');
             $team->task_3 = $this->input->post('task3');
@@ -106,6 +121,19 @@ class Admin_Controller extends MY_Controller
             $team->task_5 = $this->input->post('task5');
             $team->task_6 = $this->input->post('task6');
             $team->save();
+
+            Player::table()->delete(array('team_id' => $team->id));
+
+            foreach ($_POST['player_name'] as $ind => $name) {
+                Player::create(array(
+                    'team_id' => $team->id,
+                    'name' => $_POST['player_name'][$ind],
+                    'surname' => $_POST['player_surname'][$ind],
+                    'type' => isset($_POST['is_teacher'][$ind]) ? 'teacher' : 'student',
+                    'group' => isset($_POST['is_teacher'][$ind]) ? '' : $_POST['player_group'][$ind],
+                    'is_operator' => $ind == 0
+                ));
+            }
 
             redirect('admin/teams');
         }
