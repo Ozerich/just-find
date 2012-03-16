@@ -575,3 +575,15 @@ input[type=text],input[type=password]{
     height: 200px;
     width: 500px;
 }
+
+.game-setup .param.interval label{
+    display: inline-block;
+    width: 400px;
+    font-size: 12px;
+    text-align: left;
+}
+
+.game-setup .param.interval input{
+    width: 80px;
+    text-align: center;
+}

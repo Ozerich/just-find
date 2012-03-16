@@ -22,16 +22,16 @@ class Team_Controller extends MY_Controller
 
         $current_gametask = $this->team->current_gametask;
         if ($current_gametask) {
-            if (!$current_gametask->hint1_time && (time() - $current_gametask->open_time->getTimestamp() > HINT_DELAY))
+            if (!$current_gametask->hint1_time && (time() - $current_gametask->open_time->getTimestamp() > Config::find_by_param('hint1_interval')->value))
                 $current_gametask->hint1_time = time_to_mysqldatetime(time());
 
-            else if (!$current_gametask->hint2_time && $current_gametask->hint1_time && (time() - $current_gametask->hint1_time->getTimestamp() > HINT_DELAY))
+            else if (!$current_gametask->hint2_time && $current_gametask->hint1_time && (time() - $current_gametask->hint1_time->getTimestamp() > Config::find_by_param('hint2_interval')->value))
                 $current_gametask->hint2_time = time_to_mysqldatetime(time());
 
-            else if (!$current_gametask->hint3_time && $current_gametask->hint2_time && (time() - $current_gametask->hint2_time->getTimestamp() > HINT_DELAY))
+            else if (!$current_gametask->hint3_time && $current_gametask->hint2_time && (time() - $current_gametask->hint2_time->getTimestamp() > Config::find_by_param('hint3_interval')->value))
                 $current_gametask->hint3_time = time_to_mysqldatetime(time());
 
-            else if (!$current_gametask->answer_time && $current_gametask->hint3_time && (time() - $current_gametask->hint3_time->getTimestamp() > HINT_DELAY))
+            else if (!$current_gametask->answer_time && $current_gametask->hint3_time && (time() - $current_gametask->hint3_time->getTimestamp() > Config::find_by_param('answer_interval')->value))
                 $current_gametask->answer_time = time_to_mysqldatetime(time());
 
 
@@ -47,7 +47,7 @@ class Team_Controller extends MY_Controller
     {
         $this->view_data['is_game_over'] = $this->is_game_over();
         $this->view_data['team_content'] = $this->load->view('team/team_content.php', array('team' => $this->team), true);
-        $this->view_data['page_title'] = 'Страница оператора';
+        $this->view_data['page_title'] = 'Страница оператора '.$this->team->operator->fullname;
     }
 
     private function game_over()

@@ -66,6 +66,22 @@ class Admin_Controller extends MY_Controller
             $gameover->value = $_POST['gameover'];
             $gameover->save();
 
+            $h = Config::find_by_param('hint1_interval');
+            $h->value = $this->input->post('hint1_interval');
+            $h->save();
+
+            $h = Config::find_by_param('hint2_interval');
+            $h->value = $this->input->post('hint2_interval');
+            $h->save();
+
+            $h = Config::find_by_param('hint3_interval');
+            $h->value = $this->input->post('hint3_interval');
+            $h->save();
+
+            $h = Config::find_by_param('answer_interval');
+            $h->value = $this->input->post('answer_interval');
+            $h->save();
+
             redirect('admin/game');
         }
         if ($param == "start_game")
@@ -250,7 +266,8 @@ class Admin_Controller extends MY_Controller
         $this->view_data['task'] = $task;
     }
 
-    public function logout(){
+    public function logout()
+    {
         $this->user->logout();
         redirect('admin/auth');
     }
