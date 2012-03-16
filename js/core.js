@@ -70,6 +70,9 @@ $(document).ready(function () {
                 if (data.result == 1) {
                     $('#team-content').html(data.html);
                     alert('Ответ коректен, ты молодец ага');
+                    if(data.game_over){
+                        $('.answer-block').hide();
+                    }
                 }
                 else
                     alert('Зафейлил попытку');

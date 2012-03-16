@@ -91,6 +91,31 @@ class Team extends ActiveRecord\Model
         }
         return $result;
     }
+
+    public function get_solved_count()
+    {
+        $result = 0;
+        foreach ($this->game_tasks as $task)
+            if ($task->open_time && $task->is_closed && !$task->answer_time)
+                $result++;
+        return $result;
+    }
+
+    public function get_place()
+    {
+
+        $place = 1;
+
+        $teams = Team::all();
+        $me_count = $this->solved_count;
+        $current_time = time();
+        $me_time = $current_time - $this->start_time->getTimeStamp();
+        foreach ($teams as $team)
+            if ($team->solved_count > $me_count || ($team->solved_count == $me_count && ($current_time - $team->start_time->getTimeStamp()) > $me_time))
+                $place++;
+        return $place;
+    }
+
 }
 
 ?>

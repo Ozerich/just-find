@@ -21,6 +21,7 @@ class Admin_Controller extends MY_Controller
             return;
         }
 
+        @GameTask::delete_all();
         foreach (Team::all() as $team)
         {
             $game_task = GameTask::create(array('task_id' => $team->task_1, 'team_id' => $team->id));
@@ -33,6 +34,9 @@ class Admin_Controller extends MY_Controller
             if ($team->task_4) GameTask::create(array('task_id' => $team->task_4, 'team_id' => $team->id));
             if ($team->task_5) GameTask::create(array('task_id' => $team->task_5, 'team_id' => $team->id));
             if ($team->task_6) GameTask::create(array('task_id' => $team->task_6, 'team_id' => $team->id));
+
+            $team->start_time = inputdate_to_mysqldate(time());
+            $team->save();
         }
 
         $is_started->value = 1;
@@ -57,6 +61,13 @@ class Admin_Controller extends MY_Controller
 
     public function game($param = "")
     {
+        if ($_POST) {
+            $gameover = Config::find_by_param('game_over_html');
+            $gameover->value = $_POST['gameover'];
+            $gameover->save();
+
+            redirect('admin/game');
+        }
         if ($param == "start_game")
             $this->start_game();
         else if ($param == "stop_game")
@@ -72,7 +83,7 @@ class Admin_Controller extends MY_Controller
             $user = Admin::validate_login($_POST['email'], $_POST['password']);
 
             if ($user)
-                redirect('admin/main');
+                redirect('admin/game');
             else
                 redirect('admin/auth');
         }
@@ -237,6 +248,11 @@ class Admin_Controller extends MY_Controller
         }
 
         $this->view_data['task'] = $task;
+    }
+
+    public function logout(){
+        $this->user->logout();
+        redirect('admin/auth');
     }
 
 

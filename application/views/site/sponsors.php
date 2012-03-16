@@ -5,7 +5,7 @@
     <div class="containerspon">
         <div class="transparency"></div>
         <div class="content">
-            <a href="http://bsuir.by/" target="_blank"><img src="images/sponsors/bsuir.png"/></a>
+            <a href="http://www.bsuir.by/" target="_blank"><img src="images/sponsors/bsuir.png"/></a>
         </div>
     </div>
 

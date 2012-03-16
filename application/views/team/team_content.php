@@ -1,3 +1,4 @@
+<? if (!$team->finish_time): ?>
 <div class="current-task">
     <p class="block-header">Текущая загадка:</p>
 
@@ -23,9 +24,13 @@
         <p class="hint-value"><?=$team->current_gametask->answer_time ? $team->current_gametask->task->answer : 'Недоступно'?></p>
     </div>
 </div>
+<? else: ?>
+<div class="game_over_block">
+    <?=Config::find_by_param('game_over_html')->value?>
+</div>
+<? endif; ?>
 
 <div class="tasks">
-    <?srand(time());echo rand() % 100;?>
     <p class="block-header">Все загадки:</p>
     <? for ($i = 1; $i <= 6; $i++): ?>
     <div class="task">
@@ -44,6 +49,6 @@
 <div class="team-information">
     <div class="place">
         Место в игре:
-        <span>IV</span>
+        <span><?=$team->place?></span>
     </div>
 </div>

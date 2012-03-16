@@ -510,34 +510,68 @@ input[type=text],input[type=password]{
     text-align: center;
 }
 
-.tasks{
+#team-content .tasks{
     float: right;
     width: 260px;
 }
 
-.tasks .task{
+#team-content .tasks .task{
     border: 1px solid #aaa;
     padding: 5px 0;
     text-align: left;
 }
 
-.tasks .task .task-name{
+#team-content .tasks .task .task-name{
     display: inline-block;
     width: 100px;
     padding-left: 20px;
 }
 
-.team-information{
+#team-content .team-information{
     width: 260px;
     float: right;
     margin-top: 10px;
 }
 
-.team-information .place span{
+#team-content .team-information .place span{
     font-weight: bold;
 }
 
-.answer-block{
+#team-content .answer-block{
     width: 400px;
     margin-top: 20px;
+}
+
+#team-content .game_over_block{
+    float: left;
+    width: 400px;
+}
+
+.game-setup{
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #aaa;
+}
+
+.game-setup .block-header{
+    border-bottom: 1px solid #aaa;
+    text-align: center;
+    padding: 2px 0;
+}
+
+.game-setup .game-setup-content{
+    padding: 10px;
+}
+
+.game-setup .param{
+    margin: 5px 0;
+}
+
+.game-setup .param label{
+    display: block;
+}
+
+.game-setup .param textarea{
+    height: 200px;
+    width: 500px;
 }
