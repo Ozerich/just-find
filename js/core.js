@@ -52,4 +52,35 @@ $(document).ready(function () {
         return false;
     });
 
+    if ($('#submit-code').size())
+        var timer = window.setInterval(function () {
+            $.get('team/update', function (data) {
+                $('#team-content').empty().html(data);
+            })
+        }, 5000);
+
+    $('#submit-code').click(function () {
+        $(this).attr('disabled', 'disabled');
+        $.ajax({
+            url:'team/answer',
+            data:'code=' + $('#code').val(),
+            type:'post',
+            success:function (data) {
+                data = jQuery.parseJSON(data);
+                if (data.result == 1) {
+                    $('#team-content').html(data.html);
+                    alert('Ответ коректен, ты молодец ага');
+                }
+                else
+                    alert('Зафейлил попытку');
+            },
+            complete:function () {
+                $('#submit-code').removeAttr('disabled');
+                $('#code').val('');
+            }
+        });
+        return false;
+    });
+
 });
+

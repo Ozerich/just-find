@@ -6,11 +6,64 @@ class Admin_Controller extends MY_Controller
     {
         parent::__construct();
 
-        $this->user = $this->session->userdata('user_id') ? Admin::find($this->session->userdata('user_id')) : FALSE;
+        $this->user = $this->session->userdata('user_id') ? Admin::find_by_id($this->session->userdata('user_id')) : FALSE;
         $this->view_data['user'] = $this->user;
 
         $this->layout_view = 'admin';
 
+    }
+
+    private function start_game()
+    {
+
+        $is_started = Config::find_by_param('started_game');
+        if ($is_started->value) {
+            return;
+        }
+
+        foreach (Team::all() as $team)
+        {
+            $game_task = GameTask::create(array('task_id' => $team->task_1, 'team_id' => $team->id));
+
+            $game_task->open_time = time_to_mysqldatetime(time());
+            $game_task->save();
+
+            if ($team->task_2) GameTask::create(array('task_id' => $team->task_2, 'team_id' => $team->id));
+            if ($team->task_3) GameTask::create(array('task_id' => $team->task_3, 'team_id' => $team->id));
+            if ($team->task_4) GameTask::create(array('task_id' => $team->task_4, 'team_id' => $team->id));
+            if ($team->task_5) GameTask::create(array('task_id' => $team->task_5, 'team_id' => $team->id));
+            if ($team->task_6) GameTask::create(array('task_id' => $team->task_6, 'team_id' => $team->id));
+        }
+
+        $is_started->value = 1;
+        $is_started->save();
+
+        redirect('game');
+    }
+
+    private function stop_game()
+    {
+        $is_started = Config::find_by_param('started_game');
+
+        if ($is_started->value == 0) {
+            return;
+        }
+
+        $is_started->value = 0;
+        $is_started->save();
+
+        redirect('admin/game');
+    }
+
+    public function game($param = "")
+    {
+        if ($param == "start_game")
+            $this->start_game();
+        else if ($param == "stop_game")
+            $this->stop_game();
+        else
+
+            $this->view_data['page_title'] = 'Настройки игры';
     }
 
     public function auth()

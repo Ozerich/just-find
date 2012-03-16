@@ -52,7 +52,7 @@
             <li><a href="index">На главную</a></li>
             <li><a href="admin/teams">Команды</a></li>
             <li><a href="admin/tasks">Задание</a></li>
-            <li><a href="registration">Соревнование</a></li>
+            <li><a href="admin/game">Соревнование</a></li>
         </ul>
     </div>
 </div>

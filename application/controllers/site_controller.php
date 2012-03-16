@@ -31,6 +31,19 @@ class Site_Controller extends MY_Controller
     {
         $this->view_data['page_title'] = 'Спонсоры';
     }
+
+    public function login()
+    {
+        if ($_POST) {
+            $user = Team::validate_login($_POST['email'], $_POST['password']);
+
+            if ($user)
+                redirect('team');
+            else
+                redirect('login');
+        }
+        $this->view_data['page_title'] = 'Вход в игру';
+    }
 }
 
 ?>

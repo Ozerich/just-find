@@ -46,6 +46,13 @@ $route['index'] = 'site_controller/index';
 $route['about'] = 'site_controller/about';
 $route['registration'] = 'site_controller/registration';
 $route['sponsors'] = 'site_controller/sponsors';
+$route['login'] = 'site_controller/login';
+
+$route['team'] = 'team_controller';
+$route['team/(:any)'] = 'team_controller/$1';
+
+
+
 
 $route['admin'] = 'admin_controller/main';
 $route['admin/team/new'] = 'admin_controller/new_team';

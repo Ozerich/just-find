@@ -1,3 +1,4 @@
+<? define('REGISTER_FINISH', 0); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
@@ -52,7 +53,11 @@
             <li><a href="index">На главную</a></li>
             <li><a href="about">Об игре</a></li>
             <li><a href="rules">Правила</a></li>
+            <? if (!REGISTER_FINISH): ?>
             <li><a href="registration">Регистрация</a></li>
+            <? else: ?>
+            <li><a href="registration">Войти в игру</a></li>
+            <? endif; ?>
             <li><a href="sponsors">Спонсоры</a></li>
         </ul>
     </div>
@@ -68,6 +73,9 @@
             <?=$page_content?>
 
         </div>
+        <div id="copyright">
+                Разработка сайта и движка для игры  <a href="mailto:ozicoder@gmail.com">&copy; Vital Ozierski</a>
+            </div>
     </div>
 </div>
 

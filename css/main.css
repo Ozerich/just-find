@@ -77,6 +77,23 @@ h2.subtitle {
     z-index: 1000;
 }
 
+.dev_comment {
+    font-size: 14pt;
+    color: white;
+    text-align: center;
+    font-style: italic;
+    margin: 40px 10px;
+    margin-bottom: 0px;
+}
+
+.dev_comment h3 {
+    font-size: 12pt;
+    letter-spacing: 0;
+    margin: 0;
+    margin-bottom: 5px;
+    color: #E00;
+}
+
 .sponsors{margin-left: 10px}
 
 .containerspon {
@@ -89,6 +106,18 @@ h2.subtitle {
     position: relative;
     width: 220px;
     z-index: 1000;
+}
+
+#copyright{
+    margin-bottom: -35px;
+    margin: 20px 0 -35px;
+    font-size: 10px;
+}
+
+#copyright a{
+    text-decoration: none;
+    font-size: 11px;
+    color: #aaa;
 }
 
 .containerspon img{
@@ -458,3 +487,57 @@ input[type=text],input[type=password]{
 }
 
 .new-task .param textarea{height: 100px}
+
+
+.current-task{
+    float: left;
+    width: 400px;
+}
+
+.current-task .task{
+    border: 1px solid #aaa;
+    padding: 5px;
+}
+
+.current-task .hint{
+    border-bottom: 1px solid #aaa;
+    padding:10px 0;
+}
+
+
+.current-task .hint-header{
+    display: block;
+    text-align: center;
+}
+
+.tasks{
+    float: right;
+    width: 260px;
+}
+
+.tasks .task{
+    border: 1px solid #aaa;
+    padding: 5px 0;
+    text-align: left;
+}
+
+.tasks .task .task-name{
+    display: inline-block;
+    width: 100px;
+    padding-left: 20px;
+}
+
+.team-information{
+    width: 260px;
+    float: right;
+    margin-top: 10px;
+}
+
+.team-information .place span{
+    font-weight: bold;
+}
+
+.answer-block{
+    width: 400px;
+    margin-top: 20px;
+}

@@ -19,10 +19,10 @@ class Team extends ActiveRecord\Model
 
     public static function validate_login($email, $password)
     {
-        $user = Admin::find_by_email($email);
+        $user = Team::find_by_email($email);
 
         if ($user && $user->validate_password($password)) {
-            Admin::login($user->id);
+            Team::login($user->id);
             return $user;
         }
         else
@@ -32,7 +32,7 @@ class Team extends ActiveRecord\Model
     public static function login($user_id)
     {
         $CI =& get_instance();
-        $CI->session->set_userdata("user_id", $user_id);
+        $CI->session->set_userdata("team_id", $user_id);
     }
 
     public static function logout()
@@ -64,6 +64,30 @@ class Team extends ActiveRecord\Model
             if ($i == 6) $task_id = $this->task_6;
 
             $result[$i] = Task::find_by_id($task_id);
+        }
+        return $result;
+    }
+
+    public function get_current_gametask()
+    {
+
+        $result = GameTask::find(array('conditions' => array('team_id = ? AND is_closed = 0', $this->id)));
+        return $result;
+    }
+
+    public function get_game_tasks()
+    {
+        $result = array();
+        for ($i = 1; $i <= 6; $i++) {
+            $task_id = 0;
+            if ($i == 1) $task_id = $this->task_1;
+            if ($i == 2) $task_id = $this->task_2;
+            if ($i == 3) $task_id = $this->task_3;
+            if ($i == 4) $task_id = $this->task_4;
+            if ($i == 5) $task_id = $this->task_5;
+            if ($i == 6) $task_id = $this->task_6;
+
+            $result[$i] = GameTask::find(array('conditions' => array('team_id = ? AND task_id = ?', $this->id, $task_id)));
         }
         return $result;
     }

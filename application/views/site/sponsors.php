@@ -5,21 +5,21 @@
     <div class="containerspon">
         <div class="transparency"></div>
         <div class="content">
-            <a href="http://fksis.bsuir.by/"><img src="images/sponsors/bsuir.png"/></a>
+            <a href="http://bsuir.by/" target="_blank"><img src="images/sponsors/bsuir.png"/></a>
         </div>
     </div>
 
     <div class="containerspon">
         <div class="transparency"></div>
         <div class="content">
-            <a href="http://fksis.bsuir.by/"><img src="images/sponsors/fksis.png"/></a>
+            <a href="http://fksis.bsuir.by/" target="_blank"><img src="images/sponsors/fksis.png"/></a>
         </div>
     </div>
 
     <div class="containerspon" style="margin-right: 0">
         <div class="transparency"></div>
         <div class="content">
-            <a href="http://velcom.by/"><img src="images/sponsors/velcom.png"/></a>
+            <a href="http://velcom.by/" target="_blank"><img src="images/sponsors/velcom.png"/></a>
         </div>
     </div>
 
