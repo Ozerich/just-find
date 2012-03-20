@@ -22,6 +22,16 @@
             <a href="http://velcom.by/" target="_blank"><img src="images/sponsors/velcom.png"/></a>
         </div>
     </div>
+	
+	<br/>
+	
+	<div class="containerspon" style="margin-left: 230px; margin-top: 10px;">
+        <div class="transparency"></div>
+        <div class="content">
+            <a href="http://www.vipusknik.by/ " target="_blank"><img src="images/sponsors/vip.png"/></a>
+        </div>
+    </div>
+
 
     <br class="clear"/>
 </div>

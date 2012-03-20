@@ -8,7 +8,7 @@
 jQuery.fn.countdown = function(userOptions)
 {
   // Default options
-  var playdate = new Date(2012, 2, 17, 15, 00);
+  var playdate = new Date(2012, 2, 29, 15, 00);
   var nowdate = new Date();
   var timeleft = new Date(playdate - nowdate);
   var timeday = timeleft.getMonth()*30+timeleft.getDate()-1;

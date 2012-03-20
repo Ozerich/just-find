@@ -51,13 +51,13 @@ $route['login'] = 'site_controller/login';
 $route['team'] = 'team_controller';
 $route['team/(:any)'] = 'team_controller/$1';
 
-
-
-
 $route['admin'] = 'admin_controller/main';
 $route['admin/team/new'] = 'admin_controller/new_team';
 $route['admin/task/new'] = 'admin_controller/new_task';
 $route['admin/(:any)'] = 'admin_controller/$1';
+
+$route['live'] = 'live_controller';
+$route['live/(:any)'] = 'live_controller/$1';
 
 
 
