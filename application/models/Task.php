@@ -2,6 +2,7 @@
 
 class Task extends ActiveRecord\Model
 {
+
 }
 
 ?>

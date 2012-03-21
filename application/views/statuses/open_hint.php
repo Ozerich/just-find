@@ -1,6 +1,6 @@
 <tr class="text-status">
     <td colspan="100">
-        Команда "Борзенков и пропуски" получила подсказку II к задаче 2
+        Команда "<?=$this->team->name?>" получила подсказку <?=$hint_num?>
     </td>
 </tr>
 <tr class="status">
@@ -15,13 +15,13 @@
             </thead>
             <tbody>
             <tr class="status-info">
-                <td>Команда "Борзенков и Веселов"</td>
-                <td>1</td>
-                <td>13:25 - не отгадана</td>
+                <td><?=$this->team->name?></td>
+                <td><?=$this->team->place?></td>
+                <td><?=$task->open_time->format('h:i:s') . ' - ' .($task->close_time ? $task->close_time->format('h:i:s') : 'не отгадана')?></td>
             </tr>
             <tr>
-                <td>Тут дифур</td>
-                <td colspan="2">Подсказка к дифуру</td>
+                <td><?=$task->task->question?></td>
+                <td colspan="2"><?=$hint?></td>
             </tr>
             </tbody>
         </table>

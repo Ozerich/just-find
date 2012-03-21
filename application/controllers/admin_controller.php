@@ -43,7 +43,7 @@ class Admin_Controller extends MY_Controller
         $is_started->value = 1;
         $is_started->save();
 
-        redirect('game');
+        redirect('live');
     }
 
     private function stop_game()
@@ -83,7 +83,7 @@ class Admin_Controller extends MY_Controller
             $h->value = $this->input->post('answer_interval');
             $h->save();
 
-            redirect('admin/game');
+            redirect('live');
         }
         if ($param == "start_game")
             $this->start_game();

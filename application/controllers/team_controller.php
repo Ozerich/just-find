@@ -27,26 +27,26 @@ class Team_Controller extends MY_Controller
             if (!$current_gametask->hint1_time && (time() - $current_gametask->open_time->getTimestamp() > Config::find_by_param('hint1_interval')->value))
             {
                 $current_gametask->hint1_time = time_to_mysqldatetime(time());
-                Status::create(array('text' => $this->load->view('statuses/open_hint.php', array('hint_num' => '1', 'gametask' => $current_gametask), true),
+                Status::create(array('text' => $this->load->view('statuses/open_hint.php', array('hint_num' => '1', 'task' => $current_gametask, 'hint' => $current_gametask->task->hint_1), true),
                             'added' => time_to_mysqldatetime(time()), 'display_time' => OPEN_HINT_TIME));
             }
 
             else if (!$current_gametask->hint2_time && $current_gametask->hint1_time && (time() - $current_gametask->hint1_time->getTimestamp() > Config::find_by_param('hint2_interval')->value)){
                 $current_gametask->hint2_time = time_to_mysqldatetime(time());
-                Status::create(array('text' => $this->load->view('statuses/open_hint.php', array('hint_num' => '2', 'gametask' => $current_gametask), true),
+                Status::create(array('text' => $this->load->view('statuses/open_hint.php', array('hint_num' => '2', 'task' => $current_gametask, 'hint' => $current_gametask->task->hint_2), true),
                             'added' => time_to_mysqldatetime(time()), 'display_time' => OPEN_HINT_TIME));
             }
 
             else if (!$current_gametask->hint3_time && $current_gametask->hint2_time && (time() - $current_gametask->hint2_time->getTimestamp() > Config::find_by_param('hint3_interval')->value)){
                 $current_gametask->hint3_time = time_to_mysqldatetime(time());
-                Status::create(array('text' => $this->load->view('statuses/open_hint.php', array('hint_num' => '3', 'gametask' => $current_gametask), true),
+                Status::create(array('text' => $this->load->view('statuses/open_hint.php', array('hint_num' => '3', 'task' => $current_gametask, 'hint' => $current_gametask->task->hint_3), true),
                             'added' => time_to_mysqldatetime(time()), 'display_time' => OPEN_HINT_TIME));
             }
 
             else if (!$current_gametask->answer_time && $current_gametask->hint3_time && (time() - $current_gametask->hint3_time->getTimestamp() > Config::find_by_param('answer_interval')->value))
             {
                 $current_gametask->answer_time = time_to_mysqldatetime(time());
-                Status::create(array('text' => $this->load->view('statuses/open_answer.php', array('gametask' => $current_gametask), true),
+                Status::create(array('text' => $this->load->view('statuses/open_answer.php', array('task' => $current_gametask), true),
                             'added' => time_to_mysqldatetime(time()), 'display_time' => OPEN_HINT_TIME));
             }
 
@@ -78,12 +78,12 @@ class Team_Controller extends MY_Controller
         $current = $this->team->current_gametask;
         $current->close_time = time_to_mysqldatetime(time());
         $current->is_closed = 1;
-        $current->is_solved = 1;
+        $current->is_solved = $current->answer_time ? 0 : 1;
         $current->save();
 
-        Status::create(array('text' => $this->load->view('statuses/solved_task.php', array('gametask' => $current), true),
-            'added' => time_to_mysqldatetime(time()), 'display_time' => SOLVED_STATUS_TIME));
 
+        Status::create(array('text' => $this->load->view('statuses/solved_task.php', array('task' => $current), true),
+            'added' => time_to_mysqldatetime(time()), 'display_time' => SOLVED_STATUS_TIME));
 
         $task = GameTask::find(array('conditions' => array('team_id = ? AND is_closed = 0', $this->team->id)));
         if (!$task) {
@@ -107,7 +107,7 @@ class Team_Controller extends MY_Controller
             $result = array('result' => 0, 'html' => '', 'game_over' => $this->is_game_over());
         else
         {
-            $this->next_task(true);
+            $this->next_task();
             $result = array('result' => 1, 'game_over' => $this->is_game_over(), 'html' => $this->load->view('team/team_content.php', array('team' => $this->team), true));
         }
 

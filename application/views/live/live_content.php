@@ -45,7 +45,7 @@
         <? for ($i = 1; $i <= 6; $i++): ?>
         <tr>
             <td>Загадка <?=$i?></td>
-            <? foreach ($top_teams as $team): $task = $team->game_tasks[$i];
+            <? foreach ($bottom_teams as $team): $task = $team->game_tasks[$i];
             $class_name = '';
             if ($task->open_time) {
                 if (!$task->close_time)

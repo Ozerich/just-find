@@ -16,16 +16,14 @@
         </div>
     </div>
 
-    <div class="containerspon" style="margin-right: 0">
+    <div class="containerspon">
         <div class="transparency"></div>
         <div class="content">
             <a href="http://velcom.by/" target="_blank"><img src="images/sponsors/velcom.png"/></a>
         </div>
     </div>
 	
-	<br/>
-	
-	<div class="containerspon" style="margin-left: 230px; margin-top: 10px;">
+	<div class="containerspon">
         <div class="transparency"></div>
         <div class="content">
             <a href="http://www.vipusknik.by/ " target="_blank"><img src="images/sponsors/vip.png"/></a>
