@@ -14,9 +14,7 @@
     <link href="css/main.css" rel="stylesheet" type="text/css"/>
 
     <script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="js/hide_menu.js"></script>
     <script type="text/javascript" src="js/core.js"></script>
-    <script src="js/jquery.countdown.js" type="text/javascript"></script>
 
     <script type="text/javascript" src="http://userapi.com/js/api/openapi.js?47"></script>
     <script type="text/javascript">
@@ -30,16 +28,8 @@
             $("#YMapsID").css("height", $(document).height() + "px");
             var map = new YMaps.Map(document.getElementById("YMapsID"));
             map.setCenter(new YMaps.GeoPoint(27.534174, 53.903068), 15, YMaps.MapType.HYBRID);
-            toggleDown();
         }
-        $(function () {
-            $('#counter').countdown({
-                image:'images/digits.png',
-                timerEnd:function () {
-                    alert('Регистрация окончена');
-                }
-            });
-        });
+
     </script>
     <title><?=isset($page_title) ? $page_title : ''?> / Just-Find.ru</title>
 </head>
@@ -81,7 +71,7 @@
     <div id="container">
         <div class="transparency">
         </div>
-        <div class="content">
+        <div class="content" id="live-wrapper">
 
             <?=$content?>
 

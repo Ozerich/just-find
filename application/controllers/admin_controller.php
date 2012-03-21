@@ -35,7 +35,8 @@ class Admin_Controller extends MY_Controller
             if ($team->task_5) GameTask::create(array('task_id' => $team->task_5, 'team_id' => $team->id));
             if ($team->task_6) GameTask::create(array('task_id' => $team->task_6, 'team_id' => $team->id));
 
-            $team->start_time = inputdate_to_mysqldate(time());
+            $team->start_time = time_to_mysqldatetime(time());
+            $team->finish_time = null;
             $team->save();
         }
 

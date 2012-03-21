@@ -85,5 +85,12 @@ $(document).ready(function () {
         return false;
     });
 
+    if ($('#live-wrapper').size())
+            var timer = window.setInterval(function () {
+                $.get('live/update', function (data) {
+                    $('#live-wrapper').html(data);
+                })
+            }, 5000);
+
 });
 

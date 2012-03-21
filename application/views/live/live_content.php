@@ -33,11 +33,7 @@
         </tr>
             <? endfor; ?>
 
-        <tr class="status">
-            <td colspan="12">
-                СТАТУС
-            </td>
-        </tr>
+            <?=Status::get();?>
 
         <tr class="team-names">
             <th>&nbsp;</th>

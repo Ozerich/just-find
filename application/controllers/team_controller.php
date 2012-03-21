@@ -1,6 +1,7 @@
 <?php
 
-define('HINT_DELAY', 10);
+define('SOLVED_STATUS_TIME', 20);
+define('OPEN_HINT_TIME', 30);
 
 class Team_Controller extends MY_Controller
 {
@@ -21,18 +22,33 @@ class Team_Controller extends MY_Controller
     {
 
         $current_gametask = $this->team->current_gametask;
+
         if ($current_gametask) {
             if (!$current_gametask->hint1_time && (time() - $current_gametask->open_time->getTimestamp() > Config::find_by_param('hint1_interval')->value))
+            {
                 $current_gametask->hint1_time = time_to_mysqldatetime(time());
+                Status::create(array('text' => $this->load->view('statuses/open_hint.php', array('hint_num' => '1', 'gametask' => $current_gametask), true),
+                            'added' => time_to_mysqldatetime(time()), 'display_time' => OPEN_HINT_TIME));
+            }
 
-            else if (!$current_gametask->hint2_time && $current_gametask->hint1_time && (time() - $current_gametask->hint1_time->getTimestamp() > Config::find_by_param('hint2_interval')->value))
+            else if (!$current_gametask->hint2_time && $current_gametask->hint1_time && (time() - $current_gametask->hint1_time->getTimestamp() > Config::find_by_param('hint2_interval')->value)){
                 $current_gametask->hint2_time = time_to_mysqldatetime(time());
+                Status::create(array('text' => $this->load->view('statuses/open_hint.php', array('hint_num' => '2', 'gametask' => $current_gametask), true),
+                            'added' => time_to_mysqldatetime(time()), 'display_time' => OPEN_HINT_TIME));
+            }
 
-            else if (!$current_gametask->hint3_time && $current_gametask->hint2_time && (time() - $current_gametask->hint2_time->getTimestamp() > Config::find_by_param('hint3_interval')->value))
+            else if (!$current_gametask->hint3_time && $current_gametask->hint2_time && (time() - $current_gametask->hint2_time->getTimestamp() > Config::find_by_param('hint3_interval')->value)){
                 $current_gametask->hint3_time = time_to_mysqldatetime(time());
+                Status::create(array('text' => $this->load->view('statuses/open_hint.php', array('hint_num' => '3', 'gametask' => $current_gametask), true),
+                            'added' => time_to_mysqldatetime(time()), 'display_time' => OPEN_HINT_TIME));
+            }
 
             else if (!$current_gametask->answer_time && $current_gametask->hint3_time && (time() - $current_gametask->hint3_time->getTimestamp() > Config::find_by_param('answer_interval')->value))
+            {
                 $current_gametask->answer_time = time_to_mysqldatetime(time());
+                Status::create(array('text' => $this->load->view('statuses/open_answer.php', array('gametask' => $current_gametask), true),
+                            'added' => time_to_mysqldatetime(time()), 'display_time' => OPEN_HINT_TIME));
+            }
 
 
             $current_gametask->save();
@@ -62,7 +78,12 @@ class Team_Controller extends MY_Controller
         $current = $this->team->current_gametask;
         $current->close_time = time_to_mysqldatetime(time());
         $current->is_closed = 1;
+        $current->is_solved = 1;
         $current->save();
+
+        Status::create(array('text' => $this->load->view('statuses/solved_task.php', array('gametask' => $current), true),
+            'added' => time_to_mysqldatetime(time()), 'display_time' => SOLVED_STATUS_TIME));
+
 
         $task = GameTask::find(array('conditions' => array('team_id = ? AND is_closed = 0', $this->team->id)));
         if (!$task) {
