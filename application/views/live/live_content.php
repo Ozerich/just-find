@@ -23,8 +23,8 @@
 
             <td class="<?=$class_name?>">
                 <? if ($task->open_time): ?>
-                <?= $task->open_time->format('h:i:s') ?>
-                - <?= $task->close_time ? $task->close_time->format('h:i:s') : '' ?>
+                <?= $task->open_time->add(new DateInterval('PT1H'))->format('H:i:s') ?>
+                - <?= $task->close_time ? $task->close_time->add(new DateInterval('PT1H'))->format('H:i:s') : '' ?>
                 <? else: ?>
                 Недоступно
                 <? endif; ?>
@@ -58,8 +58,8 @@
 
             <td class="<?=$class_name?>">
                 <? if ($task->open_time): ?>
-                <?= $task->open_time->format('h:i:s') ?>
-                - <?= $task->close_time ? $task->close_time->format('h:i:s') : '' ?>
+                <?= $task->open_time->add(new DateInterval('PT1H'))->format('H:i:s') ?>
+                - <?= $task->close_time ? $task->close_time->add(new DateInterval('PT1H'))->format('H:i:s') : '' ?>
                 <? else: ?>
                 Недоступно
                 <? endif; ?>

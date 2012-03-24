@@ -36,9 +36,9 @@
     <div class="task">
         <span class="task-name">Загадка <?=$i?></span>
         <? if ($team->game_tasks[$i] && $team->game_tasks[$i]->open_time): ?>
-        <span class="task-start"><?=$team->game_tasks[$i] && $team->game_tasks[$i]->open_time ? $team->game_tasks[$i]->open_time->format('H:i:s') : ''?></span>
+        <span class="task-start"><?=$team->game_tasks[$i] && $team->game_tasks[$i]->open_time ? $team->game_tasks[$i]->open_time->add(new DateInterval('PT1H'))->format('H:i:s') : ''?></span>
         -
-        <span class="task-time"><?=$team->game_tasks[$i] && $team->game_tasks[$i]->close_time ? $team->game_tasks[$i]->close_time->format('H:i:s') : ''?></span>
+        <span class="task-time"><?=$team->game_tasks[$i] && $team->game_tasks[$i]->close_time ? $team->game_tasks[$i]->close_time->add(new DateInterval('PT1H'))->format('H:i:s') : ''?></span>
         <? else: ?>
         <span class="no-start">Недоступно</span>
         <? endif; ?>

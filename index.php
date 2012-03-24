@@ -1,7 +1,7 @@
 <?php
-date_default_timezone_set('Europe/Russia');
+date_default_timezone_set('Europe/Riga');
 set_time_limit(0);
-ini_set('date.timezone', 'Europe/Helsinki');
+ini_set('date.timezone', 'Europe/Riga');
 /*
  *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT

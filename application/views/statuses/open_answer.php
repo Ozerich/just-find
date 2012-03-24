@@ -17,7 +17,7 @@
             <tr class="status-info">
                 <td><?=$this->team->name?></td>
                 <td><?=$this->team->place?></td>
-                <td><?=$task->open_time->format('h:i:s') . ' - ' .($task->close_time ? $task->close_time->format('h:i:s') : 'не отгадана')?></td>
+                <td><?=$task->open_time->format('H:i:s') . ' - ' .($task->close_time ? $task->close_time->format('H:i:s') : 'не отгадана')?></td>
             </tr>
             <tr>
                 <td><?=$task->task->question?></td>
