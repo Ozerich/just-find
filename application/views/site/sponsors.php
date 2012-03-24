@@ -29,6 +29,13 @@
             <a href="http://www.vipusknik.by/ " target="_blank"><img src="images/sponsors/vip.png"/></a>
         </div>
     </div>
+	
+	<div class="containerspon">
+        <div class="transparency"></div>
+        <div class="content">
+            <a href="http://www.qulix.ru/ " target="_blank"><img src="images/sponsors/qulix.jpg"/></a>
+        </div>
+    </div>
 
 
     <br class="clear"/>

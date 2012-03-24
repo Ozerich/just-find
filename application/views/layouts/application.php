@@ -51,11 +51,7 @@
             <li><a href="index">На главную</a></li>
             <li><a href="about">Об игре</a></li>
             <li><a href="rules">Правила</a></li>
-            <? if (!REGISTER_FINISH): ?>
-            <li><a href="registration">Регистрация</a></li>
-            <? else: ?>
-            <li><a href="registration">Войти в игру</a></li>
-            <? endif; ?>
+            <li><a href="teams">Команды</a></li>
             <li><a href="sponsors">Спонсоры</a></li>
         </ul>
     </div>

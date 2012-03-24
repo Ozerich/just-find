@@ -14,7 +14,7 @@ class Site_Controller extends MY_Controller
 
     public function about()
     {
-        $this->view_data['page_title'] = "О игре";
+        $this->view_data['page_title'] = "Об игре";
     }
 
     public function registration()
@@ -35,6 +35,11 @@ class Site_Controller extends MY_Controller
 	public function ie()
     {
         $this->view_data['page_title'] = 'Просмотр со старых осликов запрещен :(';
+    }
+	
+	public function teams()
+    {
+        $this->view_data['page_title'] = 'Команды-участники';
     }
 
     public function login()
