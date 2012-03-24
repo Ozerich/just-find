@@ -13,12 +13,12 @@
         <td colspan="10" class="empty">Нет заданий</td>
     </tr>
         <? else: ?>
-        <? foreach (Task::all() as $task): ?>
+        <? foreach (Task::all() as $ind=>$task): ?>
         <tr>
-            <td><?=$task->id?></td>
+            <td><?=($ind + 1)?></td>
             <td><?=$task->answer?></td>
             <td><?=$task->code?></td>
-            <td><a href="admin/task/<?=$task->id?>" class="edit-icon"></a></td>
+            <td><a href="admin/delete/task/<?=$task->id?>" class="delete-icon"></a>&nbsp;<a href="admin/task/<?=$task->id?>" class="edit-icon"></a></td>
         </tr>
             <? endforeach; ?>
         <? endif; ?>
@@ -27,4 +27,8 @@
 
 <div class="list-buttons">
     <a class="new-link" href="admin/task/new">Новое задание</a>
+</div>
+
+<div id="delete-confirm" style="display:none">
+    Ты удаляешь загадку! Ты уверен?
 </div>

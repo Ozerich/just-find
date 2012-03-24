@@ -11,8 +11,10 @@
 
     <link href="css/reset.css" rel="stylesheet" type="text/css"/>
     <link href="css/main.css" rel="stylesheet" type="text/css"/>
+    <link href="css/ui-darkness/jquery-ui-1.8.18.custom.css" rel="stylesheet" type="text/css"/>
 
     <script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script src="js/jquery-ui-1.8.18.custom.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/hide_menu.js"></script>
     <script type="text/javascript" src="js/core.js"></script>
     <script src="js/jquery.countdown.js" type="text/javascript"></script>

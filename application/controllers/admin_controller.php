@@ -43,6 +43,9 @@ class Admin_Controller extends MY_Controller
         $is_started->value = 1;
         $is_started->save();
 
+        foreach (Status::all() as $st)
+            $st->delete();
+
         redirect('live');
     }
 
@@ -83,7 +86,7 @@ class Admin_Controller extends MY_Controller
             $h->value = $this->input->post('answer_interval');
             $h->save();
 
-            redirect('live');
+            redirect('admin/game');
         }
         if ($param == "start_game")
             $this->start_game();
@@ -271,6 +274,31 @@ class Admin_Controller extends MY_Controller
     {
         $this->user->logout();
         redirect('admin/auth');
+    }
+
+    public function delete($type = '', $item_id)
+    {
+        if ($type == 'team') {
+
+            $team = Team::find_by_id($item_id);
+            if (!$team)
+                show_404();
+
+            $team->delete();
+
+            redirect('admin/teams');
+        }
+        elseif ($type == 'task') {
+
+            $task = Task::find_by_id($item_id);
+
+            if (!$task)
+                show_404();
+            $task->delete();
+
+            redirect('admin/tasks');
+        }
+        else show_404();
     }
 
 

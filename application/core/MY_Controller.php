@@ -1,5 +1,9 @@
 <?php
 
+
+define('SOLVED_STATUS_TIME', 30);
+define('OPEN_HINT_TIME', 50);
+
 class MY_Controller extends CI_Controller
 {
     var $user = FALSE;

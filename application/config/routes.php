@@ -41,11 +41,14 @@
 $route['default_controller'] = 'site_controller';
 $route['404_override'] = '';
 
+$route['update_all'] = 'live_controller/update_all';
+
 $route['rules'] = 'site_controller/rules';
 $route['index'] = 'site_controller/index';
 $route['about'] = 'site_controller/about';
 $route['registration'] = 'site_controller/registration';
 $route['sponsors'] = 'site_controller/sponsors';
+$route['ie'] = 'site_controller/ie';
 $route['login'] = 'site_controller/login';
 
 $route['team'] = 'team_controller';

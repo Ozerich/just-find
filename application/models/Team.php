@@ -116,6 +116,7 @@ class Team extends ActiveRecord\Model
         return $place;
     }
 
+
 }
 
 ?>

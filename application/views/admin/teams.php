@@ -19,7 +19,7 @@
                 <td><input type="text" size="2" maxlength="2" name="pos[<?=$team->id?>]" class="team-position" value="<?=$team->pos?>"/></td>
                 <td><?=$team->name?></td>
                 <td><?=$team->operator ? $team->operator->fullname : 'Нет оператора'?></td>
-                <td><a href="admin/team/<?=$team->id?>" class="edit-icon"></a></td>
+                <td><a href="admin/delete/team/<?=$team->id?>" class="delete-icon"></a>&nbsp;<a href="admin/team/<?=$team->id?>" class="edit-icon"></a></td>
             </tr>
                 <? endforeach; ?>
             <? endif; ?>
@@ -32,4 +32,7 @@
         <br class="clear"/>
     </div>
 
+    <div id="delete-confirm" style="display:none">
+        Ты удаляешь команду! Ты уверен?
+    </div>
 </form>

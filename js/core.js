@@ -70,7 +70,7 @@ $(document).ready(function () {
                 if (data.result == 1) {
                     $('#team-content').html(data.html);
                     alert('Ответ коректен, ты молодец ага');
-                    if(data.game_over){
+                    if (data.game_over) {
                         $('.answer-block').hide();
                     }
                 }
@@ -86,11 +86,23 @@ $(document).ready(function () {
     });
 
     if ($('#live-wrapper').size())
-            var timer = window.setInterval(function () {
-                $.get('live/update', function (data) {
-                    $('#live-wrapper').html(data);
-                })
-            }, 5000);
+        var timer = window.setInterval(function () {
+            $.get('live/update', function (data) {
+                $('#live-wrapper').html(data);
+            })
+        }, 5000);
+
+    $('.tasks-list .delete-icon, .team-list .delete-icon').click(function () {
+        var link = $(this);
+        $('#delete-confirm').dialog({buttons:{
+            "Delete":function () {
+                document.location = $(link).attr('href');
+            },
+            Cancel:function () {
+                $(this).dialog("close");
+            }}});
+        return false;
+    });
 
 });
 

@@ -31,6 +31,11 @@ class Site_Controller extends MY_Controller
     {
         $this->view_data['page_title'] = 'Спонсоры';
     }
+	
+	public function ie()
+    {
+        $this->view_data['page_title'] = 'Просмотр со старых осликов запрещен :(';
+    }
 
     public function login()
     {
