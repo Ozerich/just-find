@@ -1,6 +1,6 @@
 <? define('REGISTER_FINISH', 0); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
 <head>
     <base href="<?=base_url()?>"/>
@@ -20,8 +20,9 @@
     <script type="text/javascript">
         VK.init({apiId:2798948, onlyWidgets:true});
     </script>
-    <script src="http://api-maps.yandex.ru/1.1/index.xml?key=ABJpNU8BAAAA7DJJYwIAZ-55hTSw_JH7ofFYmUDOA52U2XkAAAAAAAAAAACtiLFKo1fMWXgiJNSC3kvTnBP71Q=="
-            type="text/javascript"></script>
+    <script
+        src="http://api-maps.yandex.ru/1.1/index.xml?key=ABJpNU8BAAAA7DJJYwIAZ-55hTSw_JH7ofFYmUDOA52U2XkAAAAAAAAAAACtiLFKo1fMWXgiJNSC3kvTnBP71Q=="
+        type="text/javascript"></script>
     <script type="text/javascript">
 
         window.onload = function () {
@@ -34,36 +35,6 @@
     <title><?=isset($page_title) ? $page_title : ''?> / Just-Find.ru</title>
 </head>
 <body>
-<!--[if lt IE 7]>
-<div style='border: 1px solid #F7941D; background: #FEEFDA; text-align: center; clear: both; z-index:8888; height: 75px; position: relative;'>
-    <div style='position: absolute; right: 3px; top: 3px; font-family: courier new; font-weight: bold;'><a href='#'
-                                                                                                           onclick='javascript:this.parentNode.parentNode.style.display="none"; return false;'><img
-            src='http://www.ie6nomore.com/files/theme/ie6nomore-cornerx.jpg' style='border: none;'
-            alt='Close this notice'/></a></div>
-    <div style='width: 640px; margin: 0 auto; text-align: left; padding: 0; overflow: hidden; color: black;'>
-        <div style='width: 75px; float: left;'><img src='http://www.ie6nomore.com/files/theme/ie6nomore-warning.jpg'
-                                                    alt='Warning!'/></div>
-        <div style='width: 275px; float: left; font-family: Arial, sans-serif;'>
-            <div style='font-size: 14px; font-weight: bold; margin-top: 12px;'>You are using an outdated browser</div>
-            <div style='font-size: 12px; margin-top: 6px; line-height: 12px;'>For a better experience using this site,
-                please upgrade to a modern web browser.
-            </div>
-        </div>
-        <div style='width: 75px; float: left;'><a href='http://www.firefox.com' target='_blank'><img
-                src='http://www.ie6nomore.com/files/theme/ie6nomore-firefox.jpg' style='border: none;'
-                alt='Get Firefox 3.5'/></a></div>
-        <div style='width: 75px; float: left;'><a href='http://www.browserforthebetter.com/download.html'
-                                                  target='_blank'><img
-                src='http://www.ie6nomore.com/files/theme/ie6nomore-ie8.jpg' style='border: none;'
-                alt='Get Internet Explorer 8'/></a></div>
-        <div style='width: 73px; float: left;'><a href='http://www.apple.com/safari/download/' target='_blank'><img
-                src='http://www.ie6nomore.com/files/theme/ie6nomore-safari.jpg' style='border: none;'
-                alt='Get Safari 4'/></a></div>
-        <div style='float: left;'><a href='http://www.google.com/chrome' target='_blank'><img
-                src='http://www.ie6nomore.com/files/theme/ie6nomore-chrome.jpg' style='border: none;'
-                alt='Get Google Chrome'/></a></div>
-    </div>
-</div>  <![endif]-->
 <div id="YMapsID"></div>
 
 
@@ -71,13 +42,24 @@
     <div id="container">
         <div class="transparency">
         </div>
+        <div id="sponsors-top">
+            <div class="sponsor"><a href="http://www.bsuir.by/" target="_blank"><img
+                src="images/sponsors/bsuir.png"/></a></div>
+            <div class="sponsor"><a href="http://fksis.bsuir.by/" target="_blank"><img src="images/sponsors/fksis.png"/></a>
+            </div>
+            <div class="sponsor"><a href="http://velcom.by/" target="_blank"><img src="images/sponsors/velcom.png"/></a>
+            </div>
+            <div class="sponsor"><a href="http://www.vipusknik.by/" target="_blank"><img src="images/sponsors/vip.png"/></a>
+            </div>
+            <div class="sponsor last"><a href="http://www.qulix.ru/" target="_blank"><img
+                src="images/sponsors/qulix.jpg"/></a></div>
+        </div>
         <div class="content" id="live-wrapper">
-
             <?=$content?>
-
         </div>
     </div>
 </div>
+
 
 <div id='statCounter' style="display:none;">
     <!--Akavita counter start-->

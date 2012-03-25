@@ -54,9 +54,10 @@ $(document).ready(function () {
 
     if ($('#submit-code').size())
         var timer = window.setInterval(function () {
-            $.get('team/update', function (data) {
-                $('#team-content').empty().html(data);
-            })
+            if ($('#submit-code').size())
+                $.get('team/update', function (data) {
+                    $('#team-content').empty().html(data);
+                })
         }, 5000);
 
     $('#submit-code').click(function () {
@@ -71,7 +72,7 @@ $(document).ready(function () {
                     $('#team-content').html(data.html);
                     alert('Ответ коректен, ты молодец ага');
                     if (data.game_over) {
-                        $('.answer-block').hide();
+                        $('.answer-block').remove();;
                     }
                 }
                 else

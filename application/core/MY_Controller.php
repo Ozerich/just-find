@@ -1,8 +1,8 @@
 <?php
 
 
-define('SOLVED_STATUS_TIME', 30);
-define('OPEN_HINT_TIME', 50);
+define('SOLVED_STATUS_TIME', 40);
+define('OPEN_HINT_TIME', 20);
 
 class MY_Controller extends CI_Controller
 {

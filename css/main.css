@@ -156,7 +156,7 @@ h2.subtitle {
 }
 
 #container {
-    padding: 10px 46px 46px;
+    padding: 10px 25px 20px 25px;
     color: #FFFFFF;
     position: relative;
     float: left;
@@ -273,7 +273,7 @@ br {
     position: absolute;
     margin: 0px;
     margin-left: -350px;
-    top: 160px;
+    top: 120px;
 }
 
 #nav ul {
@@ -516,7 +516,7 @@ input[type=text], input[type=password] {
     padding: 10px
 }
 
-.team-list .team-position {
+.adminteam-list .team-position {
     width: 45px;
     text-align: center;
     height: 18px;
@@ -658,7 +658,7 @@ input[type=text], input[type=password] {
 
 .result-table td, .result-table th {
     border: 1px solid;
-    padding: 10px 0;
+    padding: 4px 0;
     width: 189px;
 }
 
@@ -669,14 +669,14 @@ input[type=text], input[type=password] {
 
 
 .result-table tr.text-status td{
-    height: 50px;
+    height: 35px;
     vertical-align: middle;
 }
 
 .result-table td.success{background: #95cf00;}
-.result-table td.in_progress{background: #ffe0ad;}
-.result-table td.no_success{background: #ff95ab;}
-.result-table td.no_start{background: #f0ebef;}
+.result-table td.in_progress{background: #ff9933;}
+.result-table td.no_success{background: #bae057;}
+.result-table td.no_start{background: #c2c2c2;}
 
 
 #live_hit_area {
@@ -687,11 +687,67 @@ input[type=text], input[type=password] {
     display: block;
     position: absolute;
     margin: 0px;
-    margin-left: -575px;
-    top: 80px;
+    margin-left: -625px;
 }
-#live_hit_area #container{width: 1200px;}
-#live_hit_area #container .transparency{width: 1300px;}
+
+#live_hit_area #container{width: 1150px;}
+#live_hit_area #container .transparency{width: 1191px;}
 
 
 .status-table{width: 90%;margin: 0 auto;}
+
+.status-info td{padding: 5px 3px !important;}
+.status-info td.team-name-caption{width: 100px;}
+.status-info td.team-name{width: 150px;}
+.status-info td.place-caption{width: 40px;}
+.status-info td.place{width: 20px;}
+.status-info td.time-caption{width: 120px;}
+
+
+.team-list{
+    width: 350px;
+    margin: 0 auto;
+}
+
+.team-list .team-name-line{
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #aaa;
+}
+
+.team-list .team-name{
+    margin-bottom: 5px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 22px;
+    display: block;
+    color: red;
+}
+
+.team-list .person-name-line{margin-bottom: 2px;}
+
+.team-list .person-job{
+    width: 80px;
+    display: inline-block;
+    color: red;
+    font-style: italic;
+}
+
+#sponsors-top{
+    position: relative;
+    height: 82px;
+    z-index: 100011;
+}
+
+#sponsors-top img{
+    height: 82px;
+}
+
+#sponsors-top .sponsor{
+    display: block;
+    float: left;
+    margin-right: 170px;
+}
+#sponsors-top .sponsor.last{margin-right:0}
+
+#live-wrapper{width: 1150px;}

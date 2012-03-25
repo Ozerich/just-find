@@ -1,5 +1,5 @@
 <form action="admin/teams" method="post">
-    <table class="team-list list">
+    <table class="adminteam-list list">
         <thead>
         <tr>
             <th>Позиция</th>
