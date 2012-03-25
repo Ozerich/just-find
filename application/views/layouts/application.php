@@ -25,6 +25,9 @@
             type="text/javascript"></script>
     <script type="text/javascript">
 
+        if(document.all && !document.getElementsByClassName)
+            document.location = 'ie';
+
         window.onload = function () {
             $("#YMapsID").css("height", $(document).height() + "px");
             var map = new YMaps.Map(document.getElementById("YMapsID"));

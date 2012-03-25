@@ -1,6 +1,6 @@
 <? define('REGISTER_FINISH', 0); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
 <head>
     <base href="<?=base_url()?>"/>
@@ -21,10 +21,11 @@
         VK.init({apiId:2798948, onlyWidgets:true});
     </script>
     <script
-        src="http://api-maps.yandex.ru/1.1/index.xml?key=ABJpNU8BAAAA7DJJYwIAZ-55hTSw_JH7ofFYmUDOA52U2XkAAAAAAAAAAACtiLFKo1fMWXgiJNSC3kvTnBP71Q=="
-        type="text/javascript"></script>
+            src="http://api-maps.yandex.ru/1.1/index.xml?key=ABJpNU8BAAAA7DJJYwIAZ-55hTSw_JH7ofFYmUDOA52U2XkAAAAAAAAAAACtiLFKo1fMWXgiJNSC3kvTnBP71Q=="
+            type="text/javascript"></script>
     <script type="text/javascript">
-
+        if (document.all && !document.getElementsByClassName)
+            document.location = 'ie';
         window.onload = function () {
             $("#YMapsID").css("height", $(document).height() + "px");
             var map = new YMaps.Map(document.getElementById("YMapsID"));
@@ -44,7 +45,7 @@
         </div>
         <div id="sponsors-top">
             <div class="sponsor"><a href="http://www.bsuir.by/" target="_blank"><img
-                src="images/sponsors/bsuir.png"/></a></div>
+                    src="images/sponsors/bsuir.png"/></a></div>
             <div class="sponsor"><a href="http://fksis.bsuir.by/" target="_blank"><img src="images/sponsors/fksis.png"/></a>
             </div>
             <div class="sponsor"><a href="http://velcom.by/" target="_blank"><img src="images/sponsors/velcom.png"/></a>
@@ -52,7 +53,7 @@
             <div class="sponsor"><a href="http://www.vipusknik.by/" target="_blank"><img src="images/sponsors/vip.png"/></a>
             </div>
             <div class="sponsor last"><a href="http://www.qulix.ru/" target="_blank"><img
-                src="images/sponsors/qulix.png"/></a></div>
+                    src="images/sponsors/qulix.png"/></a></div>
         </div>
         <div class="content" id="live-wrapper">
             <?=$content?>

@@ -48,7 +48,7 @@ class Team extends ActiveRecord\Model
 
     public function get_players()
     {
-        return Player::find('all', array('conditions' => array('is_operator = 0 AND team_id = ?', $this->id)));
+        return Player::find('all', array('conditions' => array('is_operator = 0 AND team_id = ?', $this->id), 'order' => 'id ASC'));
     }
 
     public function get_tasks()
