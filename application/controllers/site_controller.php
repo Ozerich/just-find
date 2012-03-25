@@ -34,6 +34,7 @@ class Site_Controller extends MY_Controller
 	
 	public function ie()
     {
+        $this->layout_view = '';
         $this->view_data['page_title'] = 'Просмотр со старых осликов запрещен :(';
     }
 	
