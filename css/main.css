@@ -237,16 +237,16 @@ br {
 /* this is the CSS for the menu that you will need. */
 #menu_holder {
     z-index: 1000;
-    height: 54px;
+    height: 57px;
     display: block;
     position: absolute;
-    top: -54px;
-    left: 50%;
+    top: -57px;
+    left: 48.7%;
     margin-left: -350px;
 }
 
 #nav {
-    height: 57px;
+    height: 58px;
     width: 792px;
     margin: 0px;
     padding: 0px;

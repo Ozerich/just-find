@@ -52,7 +52,7 @@
             <div class="sponsor"><a href="http://www.vipusknik.by/" target="_blank"><img src="images/sponsors/vip.png"/></a>
             </div>
             <div class="sponsor last"><a href="http://www.qulix.ru/" target="_blank"><img
-                src="images/sponsors/qulix.jpg"/></a></div>
+                src="images/sponsors/qulix.png"/></a></div>
         </div>
         <div class="content" id="live-wrapper">
             <?=$content?>

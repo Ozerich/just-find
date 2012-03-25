@@ -1,5 +1,5 @@
 <a href="http://just-find.ru"><img src="images/logo.png" height="150" border="0"/></a>
-<h1>Состав команд:</h1>
+<h1>Составы команд:</h1>
 <ul class="team-list">
     <? foreach (Team::find('all', array('order' => 'pos asc')) as $team): ?>
     <li class="team-name-line">

@@ -33,7 +33,7 @@
 	<div class="containerspon">
         <div class="transparency"></div>
         <div class="content">
-            <a href="http://www.qulix.ru/" target="_blank"><img src="images/sponsors/qulix.jpg"/></a>
+            <a href="http://www.qulix.ru/" target="_blank"><img src="images/sponsors/qulix.png"/></a>
         </div>
     </div>
 
