@@ -43,10 +43,12 @@ class Live_Controller extends MY_Controller
         $this->layout_view = '';
 
         if (Config::find_by_param('started_game')->value == 0)
-            show_404();
+            redirect('/');
 
         $this->view_data['top_teams'] = Team::find('all', array('limit' => 5, 'order' => 'pos ASC'));
         $this->view_data['bottom_teams'] = Team::find('all', array('limit' => 5, 'offset' => 5, 'order' => 'pos ASC'));
+
+
     }
 
     public function index()

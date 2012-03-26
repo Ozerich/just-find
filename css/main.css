@@ -681,13 +681,13 @@ input[type=text], input[type=password] {
 
 #live_hit_area {
     z-index: 1000;
-    width: 1300px;
+    width: 1192px;
     left: 50%;
     padding: 0px;
     display: block;
     position: absolute;
     margin: 0px;
-    margin-left: -625px;
+    margin-left: -600px;
 }
 
 #live_hit_area #container{width: 1150px;}
